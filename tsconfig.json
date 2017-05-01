@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "outDir": ".",
+        "target": "es5",
+        "module": "commonjs",
+        "strictNullChecks": false,
+        "noImplicitAny": false,
+        "experimentalDecorators": true,
+        "noUnusedLocals": true,
+        "typeRoots": [
+            "node_modules/@types",
+            "typings/globals"
+        ]
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "bower_components"
+    ]
+}

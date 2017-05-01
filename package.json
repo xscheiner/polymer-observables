@@ -1,0 +1,37 @@
+{
+  "name": "observable-prototype",
+  "version": "0.0.0",
+  "description": "Test observable data",
+  "main": "demo.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/chai": "^3.5.1",
+    "@types/es6-promise": "0.0.32",
+    "@types/mocha": "^2.2.41",
+    "@types/node": "^7.0.12",
+    "@types/polymer-ts": "0.1.28",
+    "@types/sinon": "^1.16.35",
+    "@types/sinon-chai": "^2.7.27",
+    "cpy-cli": "^1.0.1",
+    "node-sass": "^4.5.2"
+  },
+  "scripts": {
+    "start": "polymer serve",
+    "preinstall": "bower install",
+    "postinstall": "typings install",
+    "prebuild": "cpy '**/*.html' '../../' --cwd='src/main' --parents",
+    "predevbuild": "cpy '**/*.html' '../../' --cwd='src/main' --parents",
+    "build": "npm run typings && npm run build-css && tsc -p tsconfig.dev.json",
+    "devbuild": "npm run typings && npm run pretest && npm run build-css-dev && tsc -p tsconfig.dist.json",
+    "devbuild:watch": "watch 'npm run devbuild' ./src",
+    "pretest": "tsc -p tsconfig.test.json && cpy '**/*.html' '../../test' --cwd='src/test' --parents",
+    "test": "npm run build && polymer test",
+    "build-css": "node-sass src/main --recursive --output .",
+    "build-css-dev": "node-sass src/main --recursive --output ./dist",
+    "typings": "rm -r typings && typings install"
+  },
+  "author": "David Scheiner"
+}
