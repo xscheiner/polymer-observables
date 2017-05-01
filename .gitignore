@@ -1,6 +1,6 @@
 node_modules
 bower_components
-observable-base
-observable-header
+/observable-base
+/observable-header
 *.css
 typings
